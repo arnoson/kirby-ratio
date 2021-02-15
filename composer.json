@@ -1,0 +1,14 @@
+{
+  "name": "arnoson/kirby-ratio",
+  "description": "Aspect ratio container snippets",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "arnoson"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.2"
+  }
+}
