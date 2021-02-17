@@ -7,7 +7,7 @@ if (!isset($file)) {
   return;
 }
 
-$ratio = $file->height() / $file->width();
+$ratio = $ratio ?? ($file->height() / $file->width());
 $src = $file->url();
 
 // Create srcset.
@@ -32,7 +32,7 @@ $attributes = array_filter(array_merge($attributes ?? [], [
 ]));
 
 if ($lazy) {
-  $attributes['class'] = trim($attributes['class'] ?? '' . ' lazy');
+  $attributes['class'] = trim(($attributes['class'] ?? '') . ' lazy');
 }
 
 $attributeMarkup = arnoson\kirbyRatio\getAttributeMarkup($attributes);
