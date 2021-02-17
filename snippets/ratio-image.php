@@ -32,7 +32,7 @@ $attributes = array_filter(array_merge($attributes ?? [], [
 ]));
 
 if ($lazy) {
-  $attributes['class'] = trim($attributes['class'] ?? '' + ' lazy');
+  $attributes['class'] = trim($attributes['class'] ?? '' . ' lazy');
 }
 
 $attributeMarkup = arnoson\kirbyRatio\getAttributeMarkup($attributes);
