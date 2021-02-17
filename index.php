@@ -1,8 +1,6 @@
 <?php
 
 namespace arnoson\kirbyRatio;
-
-require_once __DIR__ . '/vendor/autoload.php';
 use Kirby\Cms\App;
 
 function getAttributeMarkup(array $attributes): string {
