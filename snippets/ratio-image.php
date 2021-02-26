@@ -7,28 +7,29 @@ if (!isset($file)) {
   return;
 }
 
+$lazy = option('arnoson.kirby-ratio.lazy');
+$sizes = option('arnoson.kirby-ratio.sizes');
+$srcset = option('arnoson.kirby-ratio.srcset');
+
 $ratio = $ratio ?? ($file->height() / $file->width());
 $src = $file->url();
 
 // Create srcset.
-if (isset($srcset)) {
-  if ($srcset === true) {
-    $srcset = $file->srcset();
-  } else if ($srcset === '@auto') {
-    $srcset = $file->autoSrcset();
-  } else {
-    $srcset = $file->srcset($srcset);
-  }
+if ($srcset === true) {
+  $srcset = $file->srcset();
+} else if ($srcset === '@auto') {
+  $srcset = $file->autoSrcset();
+} else if (isset($srcset)) {
+  $srcset = $file->srcset($srcset);
 }
 
 // Prefix `src` and `srcset` attribute with 'data-'.
-$lazy = $lazy ?? false;
 $lazyPrefix = $lazy ? 'data-' : '';
 
 $attributes = array_filter(array_merge($attributes ?? [], [
-  "${lazyPrefix}src" => $src ?? null,
-  "${lazyPrefix}srcset" => $srcset ?? null,
-  'sizes' => $sizes ?? null
+  "${lazyPrefix}src" => $src,
+  "${lazyPrefix}srcset" => $srcset,
+  'sizes' => $sizes
 ]));
 
 if ($lazy) {
