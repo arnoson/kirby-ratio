@@ -13,7 +13,7 @@ if (!isset($ratio)) {
   $ratio = $info['video']['resolution_y'] / $info['video']['resolution_x'];
 }
 
-$lazy = option('arnoson.kirby-ratio.lazy');
+$lazy = $lazy ?? option('arnoson.kirby-ratio.lazy');
 $src = $file->url();
 
 // Prefix `src` attribute with 'data-'.

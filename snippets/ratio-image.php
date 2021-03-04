@@ -7,9 +7,9 @@ if (!isset($file)) {
   return;
 }
 
-$lazy = option('arnoson.kirby-ratio.lazy');
-$sizes = option('arnoson.kirby-ratio.sizes');
-$srcset = option('arnoson.kirby-ratio.srcset');
+$lazy = $lazy ?? option('arnoson.kirby-ratio.lazy');
+$sizes = $sizes ?? option('arnoson.kirby-ratio.sizes');
+$srcset = $srcset ?? option('arnoson.kirby-ratio.srcset');
 
 $ratio = $ratio ?? ($file->height() / $file->width());
 $src = $file->url();
